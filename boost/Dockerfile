@@ -13,7 +13,7 @@ RUN wget http://downloads.sourceforge.net/project/boost/boost/${boost_version}/$
     && rm ${boost_dir}.tar.gz \
     && cd ${boost_dir} \
     && ./bootstrap.sh \
-    && ./b2 --prefix=/usr -j 4 link=shared runtime-link=shared install \
+    && ./b2 --without-python --prefix=/usr -j 4 link=shared runtime-link=shared install \
     && cd .. && rm -rf ${boost_dir} && ldconfig
 
 CMD bash
